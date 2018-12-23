@@ -1,0 +1,9 @@
+C:\Users\Marysia\Documents\Visual Studio 2015\Projects\GraMatematycznyDeszcz\GraMatematycznyDeszcz\bin\Debug\GraMatematycznyDeszcz.exe.config
+C:\Users\Marysia\Documents\Visual Studio 2015\Projects\GraMatematycznyDeszcz\GraMatematycznyDeszcz\bin\Debug\GraMatematycznyDeszcz.exe
+C:\Users\Marysia\Documents\Visual Studio 2015\Projects\GraMatematycznyDeszcz\GraMatematycznyDeszcz\bin\Debug\GraMatematycznyDeszcz.pdb
+C:\Users\Marysia\Documents\Visual Studio 2015\Projects\GraMatematycznyDeszcz\GraMatematycznyDeszcz\obj\Debug\GraMatematycznyDeszcz.csprojResolveAssemblyReference.cache
+C:\Users\Marysia\Documents\Visual Studio 2015\Projects\GraMatematycznyDeszcz\GraMatematycznyDeszcz\obj\Debug\GraMatematycznyDeszcz.Properties.Resources.resources
+C:\Users\Marysia\Documents\Visual Studio 2015\Projects\GraMatematycznyDeszcz\GraMatematycznyDeszcz\obj\Debug\GraMatematycznyDeszcz.csproj.GenerateResource.Cache
+C:\Users\Marysia\Documents\Visual Studio 2015\Projects\GraMatematycznyDeszcz\GraMatematycznyDeszcz\obj\Debug\GraMatematycznyDeszcz.exe
+C:\Users\Marysia\Documents\Visual Studio 2015\Projects\GraMatematycznyDeszcz\GraMatematycznyDeszcz\obj\Debug\GraMatematycznyDeszcz.pdb
+C:\Users\Marysia\Documents\Visual Studio 2015\Projects\GraMatematycznyDeszcz\GraMatematycznyDeszcz\obj\Debug\GraMatematycznyDeszcz.GameForm.resources
