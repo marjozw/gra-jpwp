@@ -15,7 +15,7 @@ namespace GraMatematycznyDeszcz
     {
         int cursX = 0;
         int cursY = 0;
-        int speed = 15;
+        int speed = 20;
         int gameScore = 0;
         int timeTick = 0;
         int raindropFail = 0;
@@ -27,6 +27,7 @@ namespace GraMatematycznyDeszcz
         bool randomBegin = false;
         bool randomBegin2 = false;
         bool randomBegin3 = false;
+        bool level2 = true;
         List<Equation> currentResults = new List<Equation>();
         List<Kropla> raindropList = new List<Kropla>();
         Random rand = new Random();
@@ -34,6 +35,18 @@ namespace GraMatematycznyDeszcz
         public GameForm()
         {
             InitializeComponent();
+            equation1.Parent = pictureBox1;
+            equation1.BackColor = Color.Transparent;
+            equation2.Parent = pictureBox2;
+            equation2.BackColor = Color.Transparent;
+            equation3.Parent = pictureBox3;
+            equation3.BackColor = Color.Transparent;
+            equation4.Parent = pictureBox4;
+            equation4.BackColor = Color.Transparent;
+            equation5.Parent = pictureBox5;
+            equation5.BackColor = Color.Transparent;
+            equation6.Parent = pictureBox6;
+            equation6.BackColor = Color.Transparent;
         }
         protected override CreateParams CreateParams
         {
@@ -49,23 +62,18 @@ namespace GraMatematycznyDeszcz
         {
             score.Text = "Wynik " + gameScore;
             raindropFall();
-            if (gameScore == 5)
+            if (gameScore >= 2 && level2)
             {
-                equation1.level = 2;
-                equation2.level = 2;
-                equation3.level = 2;
-                equation4.level = 2;
-                equation5.level = 2;
-                equation6.level = 2;
+                changeLevel(2);
             }
             if (gameScore > 6 && bug.Visible == false)
             {
                 bugTimer += 500;
-                if(bugTimer % 3000 == 0)
+                if(bugTimer % 10000 == 0)
                 {
-                    int bugX = rand.Next(10, 400);
-                    int bugY = rand.Next(10, 450);
-                    bug_Appear(bugX, bugY);
+                    int bugX =  rand.Next(0, 400);
+                    int bugY = rand.Next(0, 18);
+                    bugAppear(bugX, bugY);
                 }
             }
             waterLevel(raindropFail);
@@ -103,9 +111,7 @@ namespace GraMatematycznyDeszcz
             if ((timeTick > 11000 && begin) || randomBegin)
             {
                 kropla1.fallDown(speed);
-                equation1.noweRownanie();
-                equation1.Text = equation1.liczba1.ToString() + equation1.znak.ToString() + equation1.liczba2.ToString();
-                currentResults.Add(equation1);
+                createEquation(equation1);
                 begin = false;
                 randomBegin = false;
             }
@@ -113,9 +119,7 @@ namespace GraMatematycznyDeszcz
             if (kropla4.Visible == false && kropla1.Top > 140)
             {
                 kropla4.fallDown(speed);
-                equation4.noweRownanie();
-                equation4.Text = equation4.liczba1.ToString() + equation4.znak.ToString() + equation4.liczba2.ToString();
-                currentResults.Add(equation4);
+                createEquation(equation4);
             }
             else if (kropla4.Visible == true)
             {
@@ -124,9 +128,7 @@ namespace GraMatematycznyDeszcz
             if (kropla1.Visible == false && kropla4.Top > 140)
             {
                 kropla1.fallDown(speed);
-                equation1.noweRownanie();
-                equation1.Text = equation1.liczba1.ToString() + equation1.znak.ToString() + equation1.liczba2.ToString();
-                currentResults.Add(equation1);
+                createEquation(equation1);
             }
             else if (kropla1.Visible == true)
             {
@@ -148,9 +150,7 @@ namespace GraMatematycznyDeszcz
             if ((timeTick > 4000 && begin2) || randomBegin2)
             {
                 kropla2.fallDown(speed);
-                equation2.noweRownanie();
-                equation2.Text = equation2.liczba1.ToString() + equation2.znak.ToString() + equation2.liczba2.ToString();
-                currentResults.Add(equation2);
+                createEquation(equation2);
                 begin2 = false;
                 randomBegin2 = false;
             }
@@ -165,9 +165,7 @@ namespace GraMatematycznyDeszcz
             if (kropla5.Visible == false && kropla2.Top > 140)
             {
                 kropla5.fallDown(speed);
-                equation5.noweRownanie();
-                equation5.Text = equation5.liczba1.ToString() + equation5.znak.ToString() + equation5.liczba2.ToString();
-                currentResults.Add(equation5);
+                createEquation(equation5);
             }
             else if (kropla5.Visible == true)
             {
@@ -189,18 +187,14 @@ namespace GraMatematycznyDeszcz
             if ((timeTick > 7000 && begin3) || randomBegin3)
             {
                 kropla3.fallDown(speed);
-                equation3.noweRownanie();
-                equation3.Text = equation3.liczba1.ToString() + equation3.znak.ToString() + equation3.liczba2.ToString();
-                currentResults.Add(equation3);
+                createEquation(equation3);
                 begin3 = false;
                 randomBegin3 = false;
             }
             if (kropla3.Visible == false && kropla6.Top > 140)
             {
                 kropla3.fallDown(speed);
-                equation3.noweRownanie();
-                equation3.Text = equation3.liczba1.ToString() + equation3.znak.ToString() + equation3.liczba2.ToString();
-                currentResults.Add(equation3);
+                createEquation(equation3);
             }
             else if (kropla3.Visible == true)
             {
@@ -209,9 +203,7 @@ namespace GraMatematycznyDeszcz
             if (kropla6.Visible == false && kropla3.Top > 140)
             {
                 kropla6.fallDown(speed);
-                equation6.noweRownanie();
-                equation6.Text = equation6.liczba1.ToString() + equation6.znak.ToString() + equation6.liczba2.ToString();
-                currentResults.Add(equation6);
+                createEquation(equation6);
             }
             else if (kropla6.Visible == true)
             {
@@ -325,15 +317,9 @@ namespace GraMatematycznyDeszcz
                 case 1: randomBegin = true; break;
                 case 2: randomBegin2 = true; break;
                 case 3: randomBegin3 = true; break;
-
             }
             button1.Enabled = false;
-            equation1.level = 1;
-            equation2.level = 1;
-            equation3.level = 1;
-            equation4.level = 1;
-            equation5.level = 1;
-            equation6.level = 1;
+            changeLevel(1);
             timerLoop.Start();
         }
 
@@ -359,13 +345,9 @@ namespace GraMatematycznyDeszcz
             {
                 kropla.resetRaindrop(kropla.Location.X);
             }
-            equation1.level = 1;
-            equation2.level = 1;
-            equation3.level = 1;
-            equation4.level = 1;
-            equation5.level = 1;
-            equation6.level = 1;
+            changeLevel(1);
             raindropList.Clear();
+            bug.Visible = false;
         }
 
         private void waterLevel(int raindropFail)
@@ -393,7 +375,7 @@ namespace GraMatematycznyDeszcz
             resultBox.Focus();
         }
 
-        private void bug_Appear(int x, int y)
+        private void bugAppear(int x, int y)
         {
             bug.Location = new Point(x, y);
             bug.Visible = true;
@@ -406,6 +388,23 @@ namespace GraMatematycznyDeszcz
             {
                 e.Handled = true;
             }
+        }
+
+        private void changeLevel(int lvl)
+        {
+            equation1.level = lvl;
+            equation2.level = lvl;
+            equation3.level = lvl;
+            equation4.level = lvl;
+            equation5.level = lvl;
+            equation6.level = lvl;
+        }
+
+        private void createEquation(Equation eq)
+        {
+            eq.noweRownanie();
+            eq.Text = eq.liczba1.ToString() + eq.znak.ToString() + eq.liczba2.ToString();
+            currentResults.Add(eq);
         }
     }
 }

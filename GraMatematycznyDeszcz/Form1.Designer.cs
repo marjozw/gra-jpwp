@@ -158,9 +158,9 @@
             // 
             this.bug.BackColor = System.Drawing.Color.Transparent;
             this.bug.Image = ((System.Drawing.Image)(resources.GetObject("bug.Image")));
-            this.bug.Location = new System.Drawing.Point(426, 225);
+            this.bug.Location = new System.Drawing.Point(333, 14);
             this.bug.Name = "bug";
-            this.bug.Size = new System.Drawing.Size(78, 78);
+            this.bug.Size = new System.Drawing.Size(49, 52);
             this.bug.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.bug.TabIndex = 9;
             this.bug.TabStop = false;
@@ -183,11 +183,11 @@
             // 
             this.equation1.AutoSize = true;
             this.equation1.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.equation1.Font = new System.Drawing.Font("Swis721 BlkCn BT", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.equation1.ForeColor = System.Drawing.Color.OrangeRed;
-            this.equation1.Location = new System.Drawing.Point(41, 76);
+            this.equation1.Font = new System.Drawing.Font("Swis721 BlkCn BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.equation1.ForeColor = System.Drawing.Color.Azure;
+            this.equation1.Location = new System.Drawing.Point(30, 64);
             this.equation1.Name = "equation1";
-            this.equation1.Size = new System.Drawing.Size(152, 39);
+            this.equation1.Size = new System.Drawing.Size(137, 35);
             this.equation1.TabIndex = 8;
             this.equation1.Text = "equation1";
             // 
@@ -218,11 +218,11 @@
             // 
             this.equation6.AutoSize = true;
             this.equation6.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.equation6.Font = new System.Drawing.Font("Swis721 BlkCn BT", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.equation6.ForeColor = System.Drawing.Color.OrangeRed;
-            this.equation6.Location = new System.Drawing.Point(41, 76);
+            this.equation6.Font = new System.Drawing.Font("Swis721 BlkCn BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.equation6.ForeColor = System.Drawing.Color.Azure;
+            this.equation6.Location = new System.Drawing.Point(30, 64);
             this.equation6.Name = "equation6";
-            this.equation6.Size = new System.Drawing.Size(152, 39);
+            this.equation6.Size = new System.Drawing.Size(137, 35);
             this.equation6.TabIndex = 4;
             this.equation6.Text = "equation6";
             // 
@@ -253,11 +253,11 @@
             // 
             this.equation5.AutoSize = true;
             this.equation5.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.equation5.Font = new System.Drawing.Font("Swis721 BlkCn BT", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.equation5.ForeColor = System.Drawing.Color.OrangeRed;
-            this.equation5.Location = new System.Drawing.Point(41, 76);
+            this.equation5.Font = new System.Drawing.Font("Swis721 BlkCn BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.equation5.ForeColor = System.Drawing.Color.Azure;
+            this.equation5.Location = new System.Drawing.Point(30, 64);
             this.equation5.Name = "equation5";
-            this.equation5.Size = new System.Drawing.Size(152, 39);
+            this.equation5.Size = new System.Drawing.Size(137, 35);
             this.equation5.TabIndex = 4;
             this.equation5.Text = "equation5";
             // 
@@ -288,11 +288,11 @@
             // 
             this.equation4.AutoSize = true;
             this.equation4.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.equation4.Font = new System.Drawing.Font("Swis721 BlkCn BT", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.equation4.ForeColor = System.Drawing.Color.OrangeRed;
-            this.equation4.Location = new System.Drawing.Point(41, 76);
+            this.equation4.Font = new System.Drawing.Font("Swis721 BlkCn BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.equation4.ForeColor = System.Drawing.Color.Azure;
+            this.equation4.Location = new System.Drawing.Point(30, 64);
             this.equation4.Name = "equation4";
-            this.equation4.Size = new System.Drawing.Size(152, 39);
+            this.equation4.Size = new System.Drawing.Size(137, 35);
             this.equation4.TabIndex = 4;
             this.equation4.Text = "equation4";
             // 
@@ -323,11 +323,11 @@
             // 
             this.equation3.AutoSize = true;
             this.equation3.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.equation3.Font = new System.Drawing.Font("Swis721 BlkCn BT", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.equation3.ForeColor = System.Drawing.Color.OrangeRed;
-            this.equation3.Location = new System.Drawing.Point(41, 76);
+            this.equation3.Font = new System.Drawing.Font("Swis721 BlkCn BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.equation3.ForeColor = System.Drawing.Color.Azure;
+            this.equation3.Location = new System.Drawing.Point(30, 64);
             this.equation3.Name = "equation3";
-            this.equation3.Size = new System.Drawing.Size(152, 39);
+            this.equation3.Size = new System.Drawing.Size(137, 35);
             this.equation3.TabIndex = 4;
             this.equation3.Text = "equation3";
             // 
@@ -358,11 +358,11 @@
             // 
             this.equation2.AutoSize = true;
             this.equation2.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.equation2.Font = new System.Drawing.Font("Swis721 BlkCn BT", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.equation2.ForeColor = System.Drawing.Color.OrangeRed;
-            this.equation2.Location = new System.Drawing.Point(41, 76);
+            this.equation2.Font = new System.Drawing.Font("Swis721 BlkCn BT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.equation2.ForeColor = System.Drawing.Color.Azure;
+            this.equation2.Location = new System.Drawing.Point(30, 64);
             this.equation2.Name = "equation2";
-            this.equation2.Size = new System.Drawing.Size(152, 39);
+            this.equation2.Size = new System.Drawing.Size(137, 35);
             this.equation2.TabIndex = 4;
             this.equation2.Text = "equation2";
             // 
@@ -384,7 +384,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::GraMatematycznyDeszcz.Properties.Resources.tlo;
             this.ClientSize = new System.Drawing.Size(1008, 622);
-            this.Controls.Add(this.bug);
             this.Controls.Add(this.kropla1);
             this.Controls.Add(this.resultBox);
             this.Controls.Add(this.kropla6);
@@ -395,6 +394,7 @@
             this.Controls.Add(this.score);
             this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.waterPanel);
+            this.Controls.Add(this.bug);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(1024, 660);

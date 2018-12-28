@@ -15,16 +15,17 @@ namespace GraMatematycznyDeszcz
         private void CustomPanel_Resize(object sender, EventArgs e)
         {
             if (this.Visible) this.Refresh();
-
         }
         public Kropla()
         {
         }
+
         public void fallDown(int speed)
         {
             this.Visible = true;
             this.Top += speed;
         }
+
         public void resetRaindrop(int x)
         {
             this.Visible = false;

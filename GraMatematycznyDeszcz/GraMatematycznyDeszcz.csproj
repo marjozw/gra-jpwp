@@ -58,7 +58,6 @@
     <Compile Include="Kropla.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Obraz.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
