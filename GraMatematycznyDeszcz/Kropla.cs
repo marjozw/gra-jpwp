@@ -19,13 +19,19 @@ namespace GraMatematycznyDeszcz
         public Kropla()
         {
         }
-
+        /// <summary>
+        /// metoda sterująca spadaniem kropli
+        /// </summary>
+        /// <param name="speed"></param>
         public void fallDown(int speed)
         {
             this.Visible = true;
             this.Top += speed;
         }
-
+        /// <summary>
+        /// metoda powodująca powrót kropli do pozycji początkowej u góry strony
+        /// </summary>
+        /// /// <param name="x"></param>
         public void resetRaindrop(int x)
         {
             this.Visible = false;

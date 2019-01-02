@@ -13,27 +13,35 @@ namespace GraMatematycznyDeszcz
 {
     public partial class GameForm : Form
     {
-        int cursX = 0;
-        int cursY = 0;
+        // prędkość kropli
         int speed = 20;
+        // bieżący wynik gry
         int gameScore = 0;
+        // końcowy wynik gry
         public static int finalGameScore = 0;
+        // zmienna pomocnicza (generacja kropel)
         int timeTick = 0;
+        // zmienna zliczająca krople, które spadły na ziemię
         int raindropFail = 0;
+        // minimalna wysokość na jakiej może znaleźć się kropla
         int minHeight = 400;
+        // zmienna kontrolująca pojawianie się owada
         int bugTimer = 0;
+        // zmienne pomagające w algorytmie "przypadkowego" pojawiania się kropel
         bool begin = true;
         bool begin2 = true;
         bool begin3 = true;
         bool randomBegin = false;
         bool randomBegin2 = false;
         bool randomBegin3 = false;
+        // zmienna poziomu gry (jeśli true to znaczy, że poziom jeszcze nie został zmieniony)
         bool level2 = true;
+        // lista wyników równań, które aktualnie widoczne są na ekranie (kropli)
         List<Equation> currentResults = new List<Equation>();
+        // lista wszystkich kropli
         List<Kropla> raindropList = new List<Kropla>();
         Random rand = new Random();
        
-
         public GameForm()
         {
             InitializeComponent();
@@ -50,6 +58,7 @@ namespace GraMatematycznyDeszcz
             equation6.Parent = pictureBox6;
             equation6.BackColor = Color.Transparent;
         }
+
         protected override CreateParams CreateParams
         {
             get
@@ -64,14 +73,15 @@ namespace GraMatematycznyDeszcz
         {
             score.Text = "Wynik " + gameScore;
             raindropFall();
-            if (gameScore >= 2 && level2)
+            if (gameScore >= 8 && level2)
             {
                 changeLevel(2);
             }
-            if (gameScore > 6 && bug.Visible == false)
+
+            if (gameScore > 10 && bug.Visible == false)
             {
                 bugTimer += 500;
-                if(bugTimer % 10000 == 0)
+                if(bugTimer % 18000 == 0)
                 {
                     int bugX =  rand.Next(0, 400);
                     int bugY = rand.Next(0, 80);
@@ -79,56 +89,37 @@ namespace GraMatematycznyDeszcz
                 }
             }
             waterLevel(raindropFail);
-            if(raindropFail > 4)
+            if(raindropFail > 5)
             {
                 endGame();
             }
         }
-
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            Graphics dc = e.Graphics;
-#if My_Debug
-            TextFormatFlags flags = TextFormatFlags.HorizontalCenter | TextFormatFlags.EndEllipsis;
-            Font font = new Font("Stencil", 12, FontStyle.Regular);
-            TextRenderer.DrawText(dc, "X=" + cursX.ToString() + ":" + "Y=" + cursY.ToString(), font, new Rectangle(0, 0, 120, 20), SystemColors.ControlText, flags);
-#endif
-            base.OnPaint(e);
-        }
-
-        private void GameForm_MouseMove(object sender, MouseEventArgs e)
-        {
-            cursX = e.X;
-            cursY = e.Y;
-
-            this.Refresh();
-        }
-
+        
         private void raindropFall()
         {
             timeTick += 500;
             if (timeTick > 40000)
-            {
+            { // w celu zwiększenia ilości kropel widocznych na ekranie, co jakiś czas restartowane są zmienne begin, rozpoczynające ruch kropli w kolumnach 1, 2 i 3
                 timeTick = 3000;
                 begin = true;
                 begin2 = true;
                 begin3 = true;
             }
             if ((timeTick > 11000 && begin) || randomBegin)
-            {
+            { // rozpoczęcie opadania kropli w pierwszej kolumnie (zawsze rozpoczyna się od kropli 1)
                 kropla1.fallDown(speed);
                 createEquation(equation1);
                 begin = false;
                 randomBegin = false;
             }
-            //ruch kropli w kolumnie pierwszej
-            if (kropla4.Visible == false && kropla1.Top > 140)
-            {
+            //ruch kropli 1 i 4 w kolumnie pierwszej
+            if (kropla4.Visible == false && kropla1.Top > 140) 
+            {   //pojawienie się kropli 4 i generacja nowego równania, tylko w przypadku gdy kropli 4 nie ma na ekranie oraz kropla 1 jest w wystarczająco nisko (krople nie mogą na siebie nachodzić)
                 kropla4.fallDown(speed);
                 createEquation(equation4);
             }
             else if (kropla4.Visible == true)
-            {
+            { //jeżeli kropla widoczna jest na ekranie to ma cały czas opadać
                 kropla4.fallDown(speed);
             }
             if (kropla1.Visible == false && kropla4.Top > 140)
@@ -147,12 +138,12 @@ namespace GraMatematycznyDeszcz
                 raindropFail += 1;
             }
             if (kropla4.Top > minHeight)
-            {
+            {   //jeśli kropla opadnie poniżej minimalnej wysokości to wraca z powrotem na górę ekranu, równanie usuwane jest z listy i doliczany jest punkt straty
                 kropla4.resetRaindrop(kropla4.Location.X);
                 currentResults.Remove(equation4);
                 raindropFail += 1;
             }
-            //ruch kropli w kolumnie drugiej
+            //ruch kropli 2 i 5 w kolumnie drugiej
             if ((timeTick > 4000 && begin2) || randomBegin2)
             {
                 kropla2.fallDown(speed);
@@ -189,7 +180,7 @@ namespace GraMatematycznyDeszcz
                 currentResults.Remove(equation2);
                 raindropFail += 1;
             }
-            //ruch kropli w kolumnie trzeciej
+            //ruch kropli 3 i 6 w kolumnie trzeciej
             if ((timeTick > 7000 && begin3) || randomBegin3)
             {
                 kropla3.fallDown(speed);
@@ -289,7 +280,7 @@ namespace GraMatematycznyDeszcz
                     }
 
                     if (currentResults.Count == 0)
-                    {
+                    { // w przypadku braku kropel na ekranie losowana jest kropla, która jako pierwsza pojawi się ponownie na ekranie
                         int random_start = rand.Next(1, 3);
                         switch (random_start)
                         {
@@ -298,7 +289,6 @@ namespace GraMatematycznyDeszcz
                             case 3: randomBegin3 = true; break;
 
                         }
-                        //  timeTick = 0; 
                     }
                     resultBox.Clear();
                     tmpListOfResults.Clear();
@@ -319,7 +309,7 @@ namespace GraMatematycznyDeszcz
             raindropList.Add(kropla6);
             int random_start = rand.Next(1, 3);
             switch (random_start)
-            {
+            { //losowanie kropli która jako pierwsza pojawi się na ekranie (z kolumny 1, 2 albo 3)
                 case 1: randomBegin = true; break;
                 case 2: randomBegin2 = true; break;
                 case 3: randomBegin3 = true; break;
@@ -340,12 +330,12 @@ namespace GraMatematycznyDeszcz
             {
                 waterPanel.Location = new Point(-9, 308);
             }
-            else if (raindropFail == 2)
+            else if (raindropFail == 3)
             {
                 waterPanel.Location = new Point(-9, 258);
                 minHeight = 380;
             }
-            else if (raindropFail == 4)
+            else if (raindropFail == 5)
             {
                 waterPanel.Location = new Point(-9, 208);
                 minHeight = 325;

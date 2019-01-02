@@ -20,7 +20,9 @@ namespace GraMatematycznyDeszcz
         public Equation()
         {
         }
-
+        /// <summary>
+        /// metoda generująca nowe randomowe równanie
+        /// </summary>
         public void noweRownanie()
         {
             r = new Random();

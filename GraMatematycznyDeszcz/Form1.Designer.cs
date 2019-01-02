@@ -403,7 +403,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Math Raindrops";
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.GameForm_KeyPress);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.GameForm_MouseMove);
             this.panelMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bug)).EndInit();
             this.kropla1.ResumeLayout(false);
