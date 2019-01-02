@@ -79,9 +79,9 @@
             this.panelMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelMenu.Controls.Add(this.resetButton);
             this.panelMenu.Controls.Add(this.button1);
-            this.panelMenu.Location = new System.Drawing.Point(54, 72);
+            this.panelMenu.Location = new System.Drawing.Point(63, 134);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(328, 378);
+            this.panelMenu.Size = new System.Drawing.Size(319, 316);
             this.panelMenu.TabIndex = 0;
             // 
             // resetButton
@@ -92,7 +92,7 @@
             this.resetButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.resetButton.Font = new System.Drawing.Font("Lucida Handwriting", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.resetButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(74)))), ((int)(((byte)(68)))));
-            this.resetButton.Location = new System.Drawing.Point(66, 153);
+            this.resetButton.Location = new System.Drawing.Point(56, 194);
             this.resetButton.Name = "resetButton";
             this.resetButton.Size = new System.Drawing.Size(207, 77);
             this.resetButton.TabIndex = 1;
@@ -109,7 +109,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Lucida Handwriting", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(74)))), ((int)(((byte)(68)))));
-            this.button1.Location = new System.Drawing.Point(66, 33);
+            this.button1.Location = new System.Drawing.Point(56, 32);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(207, 77);
             this.button1.TabIndex = 0;
@@ -138,6 +138,7 @@
             this.score.AutoSize = true;
             this.score.BackColor = System.Drawing.Color.SeaShell;
             this.score.Font = new System.Drawing.Font("Lucida Handwriting", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.score.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(74)))), ((int)(((byte)(68)))));
             this.score.Location = new System.Drawing.Point(62, 550);
             this.score.Name = "score";
             this.score.Size = new System.Drawing.Size(183, 45);

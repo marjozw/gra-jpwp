@@ -7,3 +7,4 @@ C:\Users\Marysia\Documents\Visual Studio 2015\Projects\GraMatematycznyDeszcz\Gra
 C:\Users\Marysia\Documents\Visual Studio 2015\Projects\GraMatematycznyDeszcz\GraMatematycznyDeszcz\obj\Debug\GraMatematycznyDeszcz.exe
 C:\Users\Marysia\Documents\Visual Studio 2015\Projects\GraMatematycznyDeszcz\GraMatematycznyDeszcz\obj\Debug\GraMatematycznyDeszcz.pdb
 C:\Users\Marysia\Documents\Visual Studio 2015\Projects\GraMatematycznyDeszcz\GraMatematycznyDeszcz\obj\Debug\GraMatematycznyDeszcz.GameForm.resources
+C:\Users\Marysia\Documents\Visual Studio 2015\Projects\GraMatematycznyDeszcz\GraMatematycznyDeszcz\obj\Debug\GraMatematycznyDeszcz.Form2.resources

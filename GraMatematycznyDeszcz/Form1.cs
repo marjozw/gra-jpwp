@@ -17,6 +17,7 @@ namespace GraMatematycznyDeszcz
         int cursY = 0;
         int speed = 20;
         int gameScore = 0;
+        public static int finalGameScore = 0;
         int timeTick = 0;
         int raindropFail = 0;
         int minHeight = 400;
@@ -31,6 +32,7 @@ namespace GraMatematycznyDeszcz
         List<Equation> currentResults = new List<Equation>();
         List<Kropla> raindropList = new List<Kropla>();
         Random rand = new Random();
+       
 
         public GameForm()
         {
@@ -72,11 +74,15 @@ namespace GraMatematycznyDeszcz
                 if(bugTimer % 10000 == 0)
                 {
                     int bugX =  rand.Next(0, 400);
-                    int bugY = rand.Next(0, 18);
+                    int bugY = rand.Next(0, 80);
                     bugAppear(bugX, bugY);
                 }
             }
             waterLevel(raindropFail);
+            if(raindropFail > 4)
+            {
+                endGame();
+            }
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -325,29 +331,7 @@ namespace GraMatematycznyDeszcz
 
         private void resetButton_Click(object sender, EventArgs e)
         {
-            currentResults.Clear();
-            raindropFail = 0;
-            minHeight = 400;
-            speed = 15;
-            gameScore = 0;
-            score.Text = "Wynik " + gameScore;
-            timeTick = 0;
-            waterPanel.Location = new Point(-9, 608);
-            begin = true;
-            begin2 = true;
-            begin3 = true;
-            randomBegin = false;
-            randomBegin2 = false;
-            randomBegin3 = false;
-            button1.Enabled = true;
-            timerLoop.Stop();
-            foreach (Kropla kropla in raindropList)
-            {
-                kropla.resetRaindrop(kropla.Location.X);
-            }
-            changeLevel(1);
-            raindropList.Clear();
-            bug.Visible = false;
+            resetGame();
         }
 
         private void waterLevel(int raindropFail)
@@ -406,5 +390,41 @@ namespace GraMatematycznyDeszcz
             eq.Text = eq.liczba1.ToString() + eq.znak.ToString() + eq.liczba2.ToString();
             currentResults.Add(eq);
         }
+
+        private void endGame()
+        {
+            finalGameScore = gameScore;
+            resetGame();
+            Form2 form = new Form2();
+            form.Show();
+        }
+
+        public void resetGame()
+        {
+            currentResults.Clear();
+            raindropFail = 0;
+            minHeight = 400;
+            speed = 15;
+            gameScore = 0;
+            score.Text = "Wynik " + gameScore;
+            timeTick = 0;
+            waterPanel.Location = new Point(-9, 608);
+            begin = true;
+            begin2 = true;
+            begin3 = true;
+            randomBegin = false;
+            randomBegin2 = false;
+            randomBegin3 = false;
+            button1.Enabled = true;
+            timerLoop.Stop();
+            foreach (Kropla kropla in raindropList)
+            {
+                kropla.resetRaindrop(kropla.Location.X);
+            }
+            changeLevel(1);
+            raindropList.Clear();
+            bug.Visible = false;
+        }
+        
     }
 }
