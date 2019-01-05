@@ -7,16 +7,38 @@ using System.Windows.Forms;
 
 namespace GraMatematycznyDeszcz
 {
+    /// <summary>
+    /// Klasa odpowiedzialna za równania 
+    /// </summary>
     class Equation : Label
     {
-
+        /// <summary>
+        /// Znak równania
+        /// </summary>
         public char znak;
+        /// <summary>
+        /// Wynik równania
+        /// </summary>
         public double wynik;
+        /// <summary>
+        /// Pierwsza liczba równania
+        /// </summary>
         public double liczba1;
+        /// <summary>
+        /// Druga liczba równania
+        /// </summary>
         public double liczba2;
+        /// <summary>
+        /// Losowa liczba
+        /// </summary>
         private static Random r;
+        /// <summary>
+        /// Zmienna poziomu gry
+        /// </summary>
         public int level;
-
+        /// <summary>
+        /// Konstruktor klasy Equation
+        /// </summary>
         public Equation()
         {
         }
@@ -72,19 +94,19 @@ namespace GraMatematycznyDeszcz
             }
         }
 
-        public double add(double l1, double l2)
+        private double add(double l1, double l2)
         {
             return l1 + l2;
         }
-        public double substract(double l1, double l2)
+        private double substract(double l1, double l2)
         {
             return l1 - l2;
         }
-        public double multiply(double l1, double l2)
+        private double multiply(double l1, double l2)
         {
             return l1 * l2;
         }
-        public double divide(double l1, double l2)
+        private double divide(double l1, double l2)
         {
             return l1 / l2;
         }

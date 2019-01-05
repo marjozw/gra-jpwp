@@ -10,9 +10,15 @@ using System.Windows.Forms;
 using System.IO;
 
 namespace GraMatematycznyDeszcz
-{
+{   
+    /// <summary>
+    /// Klasa okna zapisu gry
+    /// </summary>
     public partial class Form2 : Form
     {
+        /// <summary>
+        /// Konstruktor końcowej formy (okienka zapisu)
+        /// </summary>
         public Form2()
         {
             InitializeComponent();

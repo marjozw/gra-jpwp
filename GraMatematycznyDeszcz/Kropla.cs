@@ -9,6 +9,9 @@ using System.Windows.Forms;
 
 namespace GraMatematycznyDeszcz
 {
+    /// <summary>
+    /// Klasa obsługująca kroplę
+    /// </summary>
     public class Kropla : Panel
     {
 
@@ -16,6 +19,9 @@ namespace GraMatematycznyDeszcz
         {
             if (this.Visible) this.Refresh();
         }
+        /// <summary>
+        /// Konstruktor klasy Kropla
+        /// </summary>
         public Kropla()
         {
         }

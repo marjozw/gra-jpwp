@@ -10,38 +10,65 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GraMatematycznyDeszcz
-{
+{  
+    /// <summary>
+    /// Klasa głównego okna gry
+    /// </summary>
     public partial class GameForm : Form
     {
-        // prędkość kropli
+        /// <summary>
+        /// prędkość kropli
+        /// </summary>
         int speed = 20;
-        // bieżący wynik gry
+        /// <summary>
+        /// bieżący wynik gry
+        /// </summary>
         int gameScore = 0;
-        // końcowy wynik gry
+        /// <summary>
+        /// końcowy wynik gry
+        /// </summary>
         public static int finalGameScore = 0;
-        // zmienna pomocnicza (generacja kropel)
+        /// <summary>
+        /// zmienna pomocnicza (generacja kropel)
+        /// </summary>
         int timeTick = 0;
-        // zmienna zliczająca krople, które spadły na ziemię
+        /// <summary>
+        /// zmienna zliczająca krople, które spadły na ziemię
+        /// </summary>
         int raindropFail = 0;
-        // minimalna wysokość na jakiej może znaleźć się kropla
+        /// <summary>
+        /// minimalna wysokość na jakiej może znaleźć się kropla
+        /// </summary>
         int minHeight = 400;
-        // zmienna kontrolująca pojawianie się owada
+        /// <summary>
+        /// zmienna kontrolująca pojawianie się owada
+        /// </summary>
         int bugTimer = 0;
-        // zmienne pomagające w algorytmie "przypadkowego" pojawiania się kropel
+        /// <summary>
+        /// zmienne pomagające w algorytmie "przypadkowego" pojawiania się kropel
+        /// </summary>
         bool begin = true;
         bool begin2 = true;
         bool begin3 = true;
         bool randomBegin = false;
         bool randomBegin2 = false;
         bool randomBegin3 = false;
-        // zmienna poziomu gry (jeśli true to znaczy, że poziom jeszcze nie został zmieniony)
+        /// <summary>
+        /// zmienna poziomu gry (jeśli true to znaczy, że poziom jeszcze nie został zmieniony)
+        /// </summary>
         bool level2 = true;
-        // lista wyników równań, które aktualnie widoczne są na ekranie (kropli)
+        /// <summary>
+        /// lista wyników równań, które aktualnie widoczne są na ekranie (kropli)
+        /// </summary>
         List<Equation> currentResults = new List<Equation>();
-        // lista wszystkich kropli
+        /// <summary>
+        /// lista wszystkich kropli
+        /// </summary>
         List<Kropla> raindropList = new List<Kropla>();
         Random rand = new Random();
-       
+       /// <summary>
+       /// Konstruktor głównej formy (okienka gry)
+       /// </summary>
         public GameForm()
         {
             InitializeComponent();
@@ -94,7 +121,9 @@ namespace GraMatematycznyDeszcz
                 endGame();
             }
         }
-        
+        /// <summary>
+        /// Metoda odpowiedzialna za przemieszczanie kropli po ekranie
+        /// </summary>
         private void raindropFall()
         {
             timeTick += 500;
@@ -323,7 +352,10 @@ namespace GraMatematycznyDeszcz
         {
             resetGame();
         }
-
+        /// <summary>
+        /// Metoda odpowiedzialna za podnoszenie poziomu wody.
+        /// </summary>
+        /// <param name="raindropFail">Parametr określający liczbę nieodgadniętych wyników podczas gry</param>
         private void waterLevel(int raindropFail)
         {
             if (raindropFail == 1)
@@ -348,7 +380,11 @@ namespace GraMatematycznyDeszcz
             resultBox.Enabled = true;
             resultBox.Focus();
         }
-
+        /// <summary>
+        /// Metoda odpowiedzialna za pojawianie się owada na ekranie
+        /// </summary>
+        /// <param name="x">Współrzędna x owada</param>
+        /// <param name="y">Współrzędna y owada</param>
         private void bugAppear(int x, int y)
         {
             bug.Location = new Point(x, y);
@@ -363,7 +399,10 @@ namespace GraMatematycznyDeszcz
                 e.Handled = true;
             }
         }
-
+        /// <summary>
+        /// Metoda zmieniająca poziom gry
+        /// </summary>
+        /// <param name="lvl">Cyfra reprezentująca poziom gry</param>
         private void changeLevel(int lvl)
         {
             equation1.level = lvl;
@@ -373,14 +412,19 @@ namespace GraMatematycznyDeszcz
             equation5.level = lvl;
             equation6.level = lvl;
         }
-
+        /// <summary>
+        /// Metoda generująca równanie
+        /// </summary>
+        /// <param name="eq">Parametr określający które równanie (na której kropli) ma zostać wygenerowane</param>
         private void createEquation(Equation eq)
         {
             eq.noweRownanie();
             eq.Text = eq.liczba1.ToString() + eq.znak.ToString() + eq.liczba2.ToString();
             currentResults.Add(eq);
         }
-
+        /// <summary>
+        /// Metoda kończąca partię gry.
+        /// </summary>
         private void endGame()
         {
             finalGameScore = gameScore;
@@ -388,7 +432,9 @@ namespace GraMatematycznyDeszcz
             Form2 form = new Form2();
             form.Show();
         }
-
+        /// <summary>
+        /// Metoda resetująca ustawienia gry.
+        /// </summary>
         public void resetGame()
         {
             currentResults.Clear();
